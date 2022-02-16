@@ -36,8 +36,7 @@ model EventType{
 
 model Booking{
   id     String    @id @default(cuid())
-  date  String
-  time String
+  dateTime  DateTime
   eventId String
   event EventType @relation(fields: [eventId],  references: [id])
   attendeeId  String
@@ -49,8 +48,9 @@ model Booking{
 model Attendee{
   id     String    @id @default(cuid())
   email  String
-  firstname String
-  lastname String
+  name String
+  notes String?
+  guest   String?
   bookings  Booking[]
   createdAt   DateTime @default(now())
   updatedAt     DateTime @default(now())

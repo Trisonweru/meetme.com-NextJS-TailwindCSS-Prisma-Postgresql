@@ -24,7 +24,6 @@ export default function HomePage(session: any) {
   };
   return (
     <Layout>
-      {/* <Seo templateTitle='Home' /> */}
       <Seo templateTitle='Home' />
       <Header />
     </Layout>
