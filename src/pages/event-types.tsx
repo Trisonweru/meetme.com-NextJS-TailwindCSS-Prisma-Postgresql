@@ -46,7 +46,7 @@ function EventTypes({ events }: props) {
                 New Event Type
               </Button>
             </div>
-            <div className='flex flex h-full items-start px-4 py-4 w-2/3 md:w-5/6'>
+            <div className='flex h-full items-start px-4 py-4 w-2/3 md:w-5/6'>
               {JSON.parse(events).map((item: any) => {
                 return (
                   <div
