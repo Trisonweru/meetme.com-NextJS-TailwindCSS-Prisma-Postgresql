@@ -30,7 +30,7 @@ function EventTypes({ events }: props) {
   };
 
   return (
-    <div className='border h-screen layout relative'>
+    <div className='border-r h-screen layout relative'>
       <Header />
       <Seo templateTitle='Event Types' />
       <Sidebar pathname={router.pathname} />
@@ -40,7 +40,7 @@ function EventTypes({ events }: props) {
             <div className='flex justify-end w-2/3 md:w-5/6'>
               <Button
                 //onClick={NewEventHandler}
-                className='bg-white border-slate-500 duration-200 mt-2 text-slate-900 transition hover:bg-slate-800 focus-visible:ring-slate-500'
+                className='bg-white border-slate-500 duration-200 mt-2 text-slate-900 transition hover:bg-slate-900 focus-visible:ring-slate-500 active:bg-slate-800'
               >
                 <PlusIcon className='h-4 mr-2' />
                 New Event Type
