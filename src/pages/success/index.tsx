@@ -78,8 +78,6 @@ export async function getServerSideProps(context: {
     },
   });
 
-  console.log(booking);
-
   return {
     props: { booking: JSON.stringify(booking) },
   };
