@@ -13,11 +13,13 @@ import Seo from '@/components/Seo';
 import Sidebar from '@/components/Sidebar';
 
 import { Capitalize } from '@/utils/Capitalize';
+import { fetcher } from '@/utils/fetcher';
 import { LowerCase } from '@/utils/Lowercase';
 interface props {
   events: any;
+  session: any;
 }
-function EventTypes({ events }: props) {
+function EventTypes({ events, session }: props) {
   const [showSuccess, setShowSuccess] = useState(false);
   const router = useRouter();
 
@@ -28,7 +30,9 @@ function EventTypes({ events }: props) {
     setShowSuccess(true);
     setTimeout(() => setShowSuccess(false), 3000);
   };
-
+  const NewEventHandler = async () => {
+    const resp = await fetcher('/api/new_event', { session });
+  };
   return (
     <div className='border-r h-screen layout relative'>
       <Header />
@@ -39,7 +43,7 @@ function EventTypes({ events }: props) {
           <div className='flex flex-col items-end w-full'>
             <div className='flex justify-end w-2/3 md:w-5/6'>
               <Button
-                //onClick={NewEventHandler}
+                onClick={NewEventHandler}
                 className='bg-white border-slate-500 duration-200 mt-2 text-slate-900 transition hover:bg-slate-900 focus-visible:ring-slate-500 active:bg-slate-800'
               >
                 <PlusIcon className='h-4 mr-2' />

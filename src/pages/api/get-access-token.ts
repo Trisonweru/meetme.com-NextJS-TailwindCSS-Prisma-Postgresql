@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import prisma from '../../lib/prisma';
 
 //An API to help create a user when they sign up.
 
@@ -17,22 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(401).json({ status: 401, message: 'Not authorized' });
   }
   try {
-    const user = await prisma?.user.findUnique({
-      where: {
-        email: session.user.email,
-      },
-    });
-    const savedEvent = await prisma?.eventType.create({
-      data: {
-        title: 'Requirements discussion',
-        description: 'To discuss app requirements discussion.',
-        length: '30',
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        userId: user!.id,
-      },
-    });
-    //we send a 200 code status on creating succesful with the saved event object.
-    res.status(200).json(savedEvent);
+    // res.status(200).json();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     //if any error during the creation proces we catch it and send the error message to the frontend.

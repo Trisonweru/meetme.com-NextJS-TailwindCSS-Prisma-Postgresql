@@ -9,7 +9,6 @@ import React, { useState } from 'react';
 import prisma from '@/lib/prisma';
 
 import Seo from '@/components/Seo';
-import moment from 'moment';
 
 import { Capitalize } from '@/utils/Capitalize';
 import { fetcher } from '@/utils/fetcher';
@@ -56,13 +55,6 @@ function Event({ user, link }: props) {
       }
     }
   };
-   const disablePastDate = () => {
-        const today = new Date();
-        const dd = String(today.getDate() + 1).padStart(2, "0");
-        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-        const yyyy = today.getFullYear();
-        return yyyy + "-" + mm + "-" + dd;
-    };
 
   return (
     <>
